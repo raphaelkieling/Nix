@@ -1,12 +1,14 @@
 import fs from 'fs';
 
 import HtmlModule from './html';
+import JsonModule from './json';
 
 class Module{
     constructor(){
         this.regex = { EXTENSION: /\.\w+$/g };
         this.modules = [
-            HtmlModule
+            HtmlModule,
+            JsonModule
         ]
     }
 
@@ -22,6 +24,10 @@ class Module{
     _resolveFile(filepath, { req, res }){
         let extension    = this._getExtension(filepath);
         let findedModule = this.getModuleByExtension(extension)
+
+        if(!findedModule) return res.status(500).send({
+            message: `Module for > ${extension} < not found`
+        })
         
         findedModule
             .resolve(filepath, { req, res })

@@ -17,25 +17,22 @@ class RouteManager{
     }
 
     setRoute(routeModel){
-        
         this.router.get(`/${routeModel.route}`, this.module.resolveFile(`${this.basePath}/${routeModel.filepath}`))
-
-        return routeModel;
-    }
-
-    logRoutes(routeModel){
-        console.log(chalk.blueBright(`GET: /${routeModel.route}/`))
         return routeModel;
     }
 
     routes(){
-        let fileExist = async filename => await fs.existsSync(filename);
         let toRouteModel = filename => new Route(filename);
+        let clearFilename = filename =>  filename.replace(/(\\\\)|(\\)/g,'/');
+        let logRoutes = routeModel => {
+            console.log(chalk.blueBright(`GET: /${routeModel.route}`));
+            return routeModel;
+        } 
 
         this.getFilenames()
-            .filter(fileExist)
+            .map(clearFilename)
             .map(toRouteModel)
-            .map(this.logRoutes)
+            .map(logRoutes)
             .forEach(this.setRoute.bind(this))
 
         return this.router;

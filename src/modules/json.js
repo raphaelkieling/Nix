@@ -1,8 +1,8 @@
 import fs from 'fs';
 
-class MarkdownModule{
+class JsonModule{
     constructor(){
-        this._accept = 'html'
+        this._accept = 'json'
     }
 
     accept(extension){
@@ -11,8 +11,8 @@ class MarkdownModule{
 
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)
-        res.send(content.toString());
+        res.json(JSON.parse(content.toString()));
     }
 }
 
-export default new MarkdownModule();
+export default new JsonModule();
