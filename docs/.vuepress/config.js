@@ -7,10 +7,8 @@ module.exports = {
     }
   },
   themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Github', link: 'https://github.com/raphaelkieling/Nix' }
-    ],
+    repo: 'raphaelkieling/Nix',
+    repoLabel: 'Contribute!',
     sidebar: [
       '/',
       '/start',
