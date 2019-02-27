@@ -1,4 +1,6 @@
 module.exports = {
+  title: 'Nix',
+  description: 'Make a API in seconds',
   home:true,
   markdown: {
     lineNumbers: true,
@@ -7,6 +9,7 @@ module.exports = {
     }
   },
   themeConfig: {
+    logo: '/images/logo.png',
     repo: 'raphaelkieling/Nix',
     repoLabel: 'Contribute!',
     sidebar: [

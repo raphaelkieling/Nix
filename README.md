@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./docs/.vuepress/public/images/logo.png" width="200px">
+</div>
+
 <p align="center">
   <h1 align="center">Nix</h1>
   <p align="center">Nothing to create a api.</p>

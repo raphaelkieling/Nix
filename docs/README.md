@@ -1,5 +1,6 @@
 ---
 home: true
+heroImage: /images/logo.png
 actionText: Get Started →
 actionLink: /start
 heroText: Nix
