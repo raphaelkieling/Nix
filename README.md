@@ -57,5 +57,6 @@ Go to `localhost:PORT/NAME_FILE`
 - [ ] Accept Python
 - [ ] Accept JS
 - [x] Accept HTML
+- [x] Accept JSON
 - [ ] Accept Pug
 - [ ] Accept MustacheJS
