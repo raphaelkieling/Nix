@@ -51,6 +51,8 @@
     "express": "^4.16.4",
     "figlet": "^1.2.1",
     "fs-readdir-recursive": "^1.1.0",
-    "marked": "^0.6.1"
+    "marked": "^0.6.1",
+    "vue": "^2.6.7",
+    "vue-server-renderer": "^2.6.7"
   }
 }

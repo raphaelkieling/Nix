@@ -1,9 +1,8 @@
-import fs from 'fs';
-
 import HtmlModule from './html';
 import JsonModule from './json';
 import MarkdownModule from './markdown';
 import JavascriptModule from './javascript';
+import VueModule from './vue';
 
 class Module{
     constructor(){
@@ -12,7 +11,8 @@ class Module{
             HtmlModule,
             JsonModule,
             MarkdownModule,
-            JavascriptModule
+            JavascriptModule,
+            VueModule
         ]
     }
 
