@@ -2,11 +2,7 @@ import fs from 'fs';
 
 class HtmlModule{
     constructor(){
-        this._accept = 'html'
-    }
-
-    accept(extension){
-        return extension === this._accept;
+        this.accept = 'html'
     }
 
     async resolve(filepath, { req, res }){

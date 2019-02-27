@@ -27,6 +27,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "figlet": "^1.2.1",
-    "fs-readdir-recursive": "^1.1.0"
+    "fs-readdir-recursive": "^1.1.0",
+    "marked": "^0.6.1"
   }
 }

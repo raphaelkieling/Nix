@@ -14,14 +14,17 @@ npm install -g nix
 
 ## Getting start
 
-### Create a file
-```json
-// file.json
-{
-  "person":{
-    "name":"Kieling"
-  }
-}
+If you run the command here:
+
+```txt
+|_cookie.json
+|_myFolder/
+  |_person.json
+  |_toRead.md
+  |_subFolder/
+    |_anything.js
+    |_home.html
+
 ```
 
 ### Run
@@ -30,7 +33,17 @@ npm install -g nix
 nix
 ```
 
-Go to `localhost:PORT/NAME_FILE`
+### You will receive
+
+```
+GET: cookie
+GET: myFolder/person
+GET: myFolder/toRead
+GET: myFolder/subFolder/anything
+GET: myFolder/subFolder/home
+```
+
+Go to `localhost:PORT/GET_PATH`
 
 ## Mega Ultra Super Advanced
 
@@ -52,10 +65,11 @@ Go to `localhost:PORT/NAME_FILE`
 - [ ] Use that with [heroku](https://www.heroku.com/) or other app.
 - [ ] Create a logo
 - [ ] Create a doc
-- [ ] Accept Markdown
+- [x] Accept Markdown
+- [ ] Accept Markdown with sintax highlight
 - [ ] Accept JSX
 - [ ] Accept Python
-- [ ] Accept JS
+- [x] Accept JS
 - [x] Accept HTML
 - [x] Accept JSON
 - [ ] Accept Pug

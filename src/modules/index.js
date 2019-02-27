@@ -2,13 +2,17 @@ import fs from 'fs';
 
 import HtmlModule from './html';
 import JsonModule from './json';
+import MarkdownModule from './markdown';
+import JavascriptModule from './javascript';
 
 class Module{
     constructor(){
         this.regex = { EXTENSION: /\.\w+$/g };
         this.modules = [
             HtmlModule,
-            JsonModule
+            JsonModule,
+            MarkdownModule,
+            JavascriptModule
         ]
     }
 
@@ -34,7 +38,7 @@ class Module{
     }
 
     getModuleByExtension(extension){
-        return this.modules.find(_module => _module.accept(extension))
+        return this.modules.find(_module => _module.accept === extension)
     }
 }
 
