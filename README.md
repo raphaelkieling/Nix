@@ -1,5 +1,7 @@
 # Nix
 
+[DOCUMENTATION HERE!](https://nixjs.netlify.com/)
+
 Nix is a library for create APIs fast. You need... a unique file if you want. 
 
 **IT'S FAST**
@@ -57,3 +59,8 @@ Go to `localhost:PORT/GET_PATH`
 * Create a branch with `your-name/your-feature`
 * Make a pull request
 * Be happy
+
+
+## More?
+
+[DOCUMENTATION HERE TOO!](https://nixjs.netlify.com/)
