@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 var nix = require('../lib').default
 
-// start NIX
 nix.commands()
 nix.serve()

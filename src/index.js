@@ -1,35 +1,32 @@
 import '@babel/polyfill';
-import App from 'core/server';
-import Commands from 'core/commands';
-import Banner from 'core/banner';
+import RouteManager from 'core/routeManager'
+import FileManager from 'core/fileManager';
 import PortResolver from 'core/portResolver';
-import chalk from 'chalk';
+import enviroment from 'core/enviroment';
+import App from 'core/server';
 
-class Nix{
-    constructor({ port, application }){
-        this.application = application;
-        this.port = port
-    }
+import Module from 'modules';
 
-    async commands(){
-        let { port } = await Commands.start();
-        if(port) this.port = port;
-    }
+import Nix from 'core'
 
-    async serve(){
-        await Banner.start();
-        
-        this.application.initRouter();
-        
-        this.application.instance.listen(this.port, ()=>{
-            console.log(chalk.green(`Server running in ${this.port}`))
-        });
-    }
-}
+const optionsFileManager = {
+    basePath: enviroment.basePath
+};
+
+const optionsRouteManager = {
+    module: Module,
+    fileManager: new FileManager(optionsFileManager),
+    basePath: enviroment.basePath
+};
+
+const optionsPortResolver = {
+    port: enviroment.port
+};
 
 const options = {
-    port: PortResolver.getPort(),
-    application: App
-}
+    port: new PortResolver(optionsPortResolver).getPort(),
+    application: App,
+    routeManager: new RouteManager(optionsRouteManager)
+};
 
-export default new Nix(options);
+export default new Nix(options)

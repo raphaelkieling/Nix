@@ -1,19 +1,29 @@
 import { Router } from 'express'
-import read from 'fs-readdir-recursive';
-import fs from 'fs';
+import Route from 'domain/route'
 import chalk from 'chalk';
-import Route from 'domain/route';
-import Module from 'modules';
+import pack from '../../package.json'
 
 class RouteManager{
-    constructor({ router, basePath, module }){
-        this.router = router;
-        this.basePath = basePath || process.cwd();
+    constructor({ router, module, fileManager, basePath }){
+        this.router = router || Router();
         this.module = module;
+        this.fileManager = fileManager;
+        this.basePath = basePath;
     }
-    
-    getFilenames(){
-        return read(this.basePath);
+
+    setInitialRoute(routes){
+        let routesToSend = routes.map(route => ({
+            file: route.filepath,
+            route: `/${route.route}`
+        }))
+        
+        this.router.get('/', (req,res) => {
+            res.json({
+                message: 'Welcome to Nix',
+                version: pack.version,
+                routes: routesToSend
+            });
+        })
     }
 
     setRoute(routeModel){
@@ -23,23 +33,24 @@ class RouteManager{
 
     routes(){
         let toRouteModel = filename => new Route(filename);
-        let clearFilename = filename =>  filename.replace(/(\\\\)|(\\)/g,'/');
+        let clearFilename = filename => this.fileManager.clearFilename(filename)
         let logRoutes = routeModel => {
             console.log(chalk.blueBright(`GET: /${routeModel.route}`));
             return routeModel;
         } 
 
-        this.getFilenames()
+        let routes = this.fileManager
+            .getFilenames()
             .map(clearFilename)
             .map(toRouteModel)
             .map(logRoutes)
-            .forEach(this.setRoute.bind(this))
+        
+        this.setInitialRoute(routes);
 
+        routes.forEach(this.setRoute.bind(this))
+            
         return this.router;
     }
 }
 
-export default new RouteManager({
-    router: Router(),
-    module: Module
-});
+export default RouteManager;

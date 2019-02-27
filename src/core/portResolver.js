@@ -1,7 +1,11 @@
 class PortResolver{
+    constructor({ port }){
+        this.port = port;
+    }
+    
     getPort(){
-        return process.env.PORT || 3001
+        return this.port;
     }
 }
 
-export default new PortResolver()
+export default PortResolver

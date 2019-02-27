@@ -9,9 +9,9 @@
     "build": "babel src -d lib",
     "build:watch": "babel src -d lib --watch"
   },
-  "repository":"https://github.com/raphaelkieling/Nix",
+  "repository": "https://github.com/raphaelkieling/Nix",
   "bin": "./bin/nix",
-  "files":[
+  "files": [
     "bin/",
     "lib/"
   ],
