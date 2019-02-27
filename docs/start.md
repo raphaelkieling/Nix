@@ -43,17 +43,6 @@ GET: myFolder/subFolder/anything
 GET: myFolder/subFolder/home
 ```
 
-Go to `localhost:PORT/GET_PATH`
+Open this URL in the browser: `http://localhost:3000/`
 
-## Mega Ultra Super Advanced
-
-|Argument|Description|
-|--------|-----------|
-|`-p`, `--port`| Set a custom port to api|
-
-
-## Contributing
-
-* Create a branch with `your-name/your-feature`
-* Make a pull request
-* Be happy
+Or go to: `http://localhost:3000/cookie`

@@ -7,7 +7,9 @@
     "start": "node lib/index.js",
     "start:dev": "nodemon lib/index.js",
     "build": "babel src -d lib",
-    "build:watch": "babel src -d lib --watch"
+    "build:watch": "babel src -d lib --watch",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": "https://github.com/raphaelkieling/Nix",
   "bin": "./bin/nix",
@@ -40,7 +42,8 @@
     "@babel/preset-env": "^7.3.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "vuepress": "^0.14.9"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -51,6 +54,7 @@
     "express": "^4.16.4",
     "figlet": "^1.2.1",
     "fs-readdir-recursive": "^1.1.0",
+    "markdown-it-task-lists": "^2.1.1",
     "marked": "^0.6.1"
   }
 }
