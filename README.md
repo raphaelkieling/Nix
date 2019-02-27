@@ -1,8 +1,16 @@
-# Nix
+<p align="center">
+  <h1 align="center">Nix</h1>
+  <p align="center">Nothing to create a api.</p>
+</p>
 
-[DOCUMENTATION HERE!](https://nixjs.netlify.com/)
+<p align="center">
+  <a href="#installing">Installing</a> |
+  <a href="#getting-started">Getting Started</a> |
+  <a href="https://nixjs.netlify.com/">Docs</a>
+</p>
 
-Nix is a library for create APIs fast. You need... a unique file if you want. 
+
+**Nix** is a library for create APIs fast. You need nothing to create a api. 
 
 **IT'S FAST**
 
@@ -14,7 +22,7 @@ Nix is a library for create APIs fast. You need... a unique file if you want.
 npm install -g nix-api
 ```
 
-## Getting start
+## Getting Started
 
 If you run the command here:
 
@@ -56,11 +64,7 @@ Go to `localhost:PORT/GET_PATH`
 
 ## Contributing
 
+* Fork this project
 * Create a branch with `your-name/your-feature`
 * Make a pull request
 * Be happy
-
-
-## More?
-
-[DOCUMENTATION HERE TOO!](https://nixjs.netlify.com/)
