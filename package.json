@@ -1,6 +1,6 @@
 {
   "name": "nix-api",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,30 @@
     "build": "babel src -d lib",
     "build:watch": "babel src -d lib --watch"
   },
+  "repository":"https://github.com/raphaelkieling/Nix",
   "bin": "./bin/nix",
+  "files":[
+    "bin/",
+    "lib/"
+  ],
+  "keywords": [
+    "fast",
+    "api",
+    "service",
+    "nix",
+    "nixjs",
+    "apis",
+    "speed"
+  ],
+  "tags": [
+    "fast",
+    "api",
+    "service",
+    "nix",
+    "nixjs",
+    "apis",
+    "speed"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",

@@ -74,3 +74,4 @@ Go to `localhost:PORT/GET_PATH`
 - [x] Accept JSON
 - [ ] Accept Pug
 - [ ] Accept MustacheJS
+- [ ] in `/` show all routes
