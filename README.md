@@ -1,6 +1,10 @@
 # Nix
 
-Nix is a library for create APIs fast. You need... a unique file if you want.
+Nix is a library for create APIs fast. You need... a unique file if you want. 
+
+**IT'S FAST**
+
+![speed](https://media.giphy.com/media/5YayOGiDo5vItN379Q/giphy.gif)
 
 ## Installing
 
@@ -23,7 +27,7 @@ npm install -g nix
 ### Run
 
 ```
-nix --port 300
+nix
 ```
 
 Go to `localhost:PORT/NAME_FILE`
