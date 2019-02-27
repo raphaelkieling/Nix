@@ -9,7 +9,7 @@ Nix is a library for create APIs fast. You need... a unique file if you want.
 ## Installing
 
 ```
-npm install -g nix
+npm install -g nix-api
 ```
 
 ## Getting start
