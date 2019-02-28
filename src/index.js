@@ -9,12 +9,17 @@ import Module from 'modules';
 
 import Nix from 'core'
 
+
+const optionsModule = {
+    basePath: enviroment.basePath
+}
+
 const optionsFileManager = {
     basePath: enviroment.basePath
 };
 
 const optionsRouteManager = {
-    module: Module,
+    moduleManager: new Module(optionsModule),
     fileManager: new FileManager(optionsFileManager),
     basePath: enviroment.basePath
 };

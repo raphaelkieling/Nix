@@ -1,19 +1,25 @@
 import read from 'fs-readdir-recursive';
+import File from 'domain/file';
+import path from 'path';
 
 class FileManager{
     constructor({ basePath }){
         this.basePath = basePath;
-        this.regex = {
-            CLEAR: /(\\\\)|(\\)/g
-        }
     }
 
     getFilenames(){
-        return read(this.basePath);
+        let toFileModel = filepath => new File(filepath);
+
+        return read(this.basePath)
+            .map(this.clearFilename)
+            .map(toFileModel)
     }
 
     clearFilename(filename){
-        return filename.replace(this.regex.CLEAR,'/');
+        filename = path.normalize(filename);
+        let filenameSplited = filename.split(path.sep);
+
+        return filenameSplited.join('/');
     }
     
 }

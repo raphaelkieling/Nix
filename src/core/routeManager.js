@@ -4,16 +4,15 @@ import chalk from 'chalk';
 import pack from '../../package.json'
 
 class RouteManager{
-    constructor({ router, module, fileManager, basePath }){
+    constructor({ router, moduleManager, fileManager }){
         this.router = router || Router();
-        this.module = module;
+        this.module = moduleManager;
         this.fileManager = fileManager;
-        this.basePath = basePath;
     }
 
     setInitialRoute(routes){
         let routesToSend = routes.map(route => ({
-            file: route.filepath,
+            file: route.file.getPath(),
             route: `/${route.route}`
         }))
         
@@ -27,13 +26,12 @@ class RouteManager{
     }
 
     setRoute(routeModel){
-        this.router.get(`/${routeModel.route}`, this.module.resolveFile(`${this.basePath}/${routeModel.filepath}`))
+        this.router.get(`/${routeModel.route}`, this.module.resolveFile(routeModel.file))
         return routeModel;
     }
 
     routes(){
-        let toRouteModel = filename => new Route(filename);
-        let clearFilename = filename => this.fileManager.clearFilename(filename)
+        let toRouteModel = fileModel => new Route(fileModel);
         let logRoutes = routeModel => {
             console.log(chalk.blueBright(`GET: /${routeModel.route}`));
             return routeModel;
@@ -41,7 +39,6 @@ class RouteManager{
 
         let routes = this.fileManager
             .getFilenames()
-            .map(clearFilename)
             .map(toRouteModel)
             .map(logRoutes)
         

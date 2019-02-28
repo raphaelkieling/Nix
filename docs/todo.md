@@ -23,3 +23,4 @@ sidebar: true
 - [x] in `/` show all routes
 - [ ] Dependency Resolution do use more librarys in files
 - [ ] Use Webpack to resolve the files (need?)
+- [ ] Copy and create a folder to build the project with webpack (npmi)
