@@ -7,6 +7,7 @@ class File{
         this.ext  = '';
         this.name = '';
 
+
         this.parse(filepath)
     }
 
@@ -32,7 +33,7 @@ class File{
 
     getPathWithoutExt(){
         if(this.dir) return `${this.dir}/${this.name}`;
-        return this.base;
+        return this.name;
     }
 }
 

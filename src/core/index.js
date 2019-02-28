@@ -1,12 +1,15 @@
 import Banner from 'core/banner';
 import chalk from 'chalk';
 import Commands from 'core/commands';
+import { Spinner } from 'cli-spinner'
+
 
 class Nix{
     constructor({ port, application, routeManager }){
         this.application = application;
         this.port = port;
         this.routeManager = routeManager;
+        this.loader = new Spinner('processing.. %s');
     }
 
     async commands(){
@@ -22,12 +25,17 @@ class Nix{
     async serve(){
         await Banner.start();
 
-        this.start();
-        
-        this.application.listen(this.port, ()=>{
+        this.loader.start();
+
+        setTimeout(()=>{
+            this.loader.stop();
             console.log('\n')
-            console.log(chalk.green(`Server running in PORT = ${this.port}`))
-        });
+            this.start();
+            this.application.listen(this.port, ()=>{
+                console.log('\n')
+                console.log(chalk.green(`Server running in PORT ${this.port}`))
+            });
+        }, 1000);
     }
 }
 

@@ -8,6 +8,7 @@ class RouteManager{
         this.router = router || Router();
         this.module = moduleManager;
         this.fileManager = fileManager;
+        this._line = '------------------';
     }
 
     setInitialRoute(routes){
@@ -31,20 +32,26 @@ class RouteManager{
     }
 
     routes(){
+        console.log(chalk.blue(this._line))
+        console.log(chalk.blue('Routes'))
+        console.log(chalk.blue(this._line))
         let toRouteModel = fileModel => new Route(fileModel);
         let logRoutes = routeModel => {
             console.log(chalk.blueBright(`GET: /${routeModel.route}`));
             return routeModel;
         } 
 
-        let routes = this.fileManager
-            .getFilenames()
+        let filepaths = this.fileManager.getFilenames();
+
+        let routes = filepaths
             .map(toRouteModel)
-            .map(logRoutes)
+            .map(logRoutes);
         
         this.setInitialRoute(routes);
 
         routes.forEach(this.setRoute.bind(this))
+
+        console.log(chalk.blue(this._line))
             
         return this.router;
     }

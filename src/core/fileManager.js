@@ -7,15 +7,20 @@ class FileManager{
         this.basePath = basePath;
     }
 
+    _filterFile(path){
+        let test = new RegExp(/node_modules/g).test(path);
+        return !test;
+    }
+
     getFilenames(){
         let toFileModel = filepath => new File(filepath);
 
-        return read(this.basePath)
-            .map(this.clearFilename)
-            .map(toFileModel)
+        return read(this.basePath, this._filterFile)
+            .map(this._clearFilename)
+            .map(toFileModel);
     }
 
-    clearFilename(filename){
+    _clearFilename(filename){
         filename = path.normalize(filename);
         let filenameSplited = filename.split(path.sep);
 
