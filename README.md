@@ -28,6 +28,8 @@ npm install -g nix-api
 
 ## Getting Started
 
+![using gif](./docs/.vuepress/public/images/using.gif)
+
 If you run the command here:
 
 ```txt

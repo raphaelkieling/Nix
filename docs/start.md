@@ -14,6 +14,8 @@ npm install -g nix-api
 
 ## Getting start
 
+![using gif](/images/using.gif)
+
 If you run the command here:
 
 ```txt
