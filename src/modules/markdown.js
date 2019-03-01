@@ -3,7 +3,7 @@ import marked from 'marked';
 
 class MarkdownModule{
     constructor(){
-        this.accept = 'md'
+        this.accept = /md/g
     }
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)

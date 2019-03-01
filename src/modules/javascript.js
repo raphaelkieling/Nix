@@ -4,7 +4,7 @@ import Module from 'module';
 
 class JavascriptModule{
     constructor(){
-        this.accept = 'js'
+        this.accept = /js/g
     }
 
     async resolve(filepath, { req, res }){

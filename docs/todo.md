@@ -17,6 +17,7 @@ sidebar: true
 - [x] Accept JS
 - [x] Accept Last JS Version
 - [x] Accept HTML
+- [ ] Accept all file but only print content
 - [x] Accept JSON
 - [ ] Accept Pug
 - [ ] Accept MustacheJS
