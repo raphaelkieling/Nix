@@ -1,14 +1,13 @@
 import fs from 'fs';
 
-class HtmlModule{
+class StaticModule{
     constructor(){
-        this.accept = /html/g
+        this.accept = /png/g
     }
-
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)
-        res.send(content.toString());
+        res.send(content);
     }
 }
 
-export default new HtmlModule();
+export default new StaticModule();

@@ -2,7 +2,7 @@ import fs from 'fs';
 
 class JsonModule{
     constructor(){
-        this.accept = 'json'
+        this.accept = /json/g
     }
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)

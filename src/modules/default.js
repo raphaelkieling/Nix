@@ -1,9 +1,7 @@
 import fs from 'fs';
 
-class HtmlModule{
-    constructor(){
-        this.accept = /html/g
-    }
+class DefaultModule{
+    constructor(){ }
 
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)
@@ -11,4 +9,4 @@ class HtmlModule{
     }
 }
 
-export default new HtmlModule();
+export default new DefaultModule();
