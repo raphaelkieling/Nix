@@ -1,13 +1,14 @@
 import fs from 'fs';
 
-class StaticModule{
+class ImageModule{
     constructor(){
-        this.accept = /png/g
+        this.accept = /(gif|jpg|jpeg|tiff|png)/g
     }
+    
     async resolve(filepath, { req, res }){
         let content = await fs.readFileSync(filepath)
-        res.send(content);
+        res.end(content, 'binary');
     }
 }
 
-export default new StaticModule();
+export default new ImageModule();
