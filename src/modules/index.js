@@ -3,7 +3,7 @@ import JsonModule from './json';
 import MarkdownModule from './markdown';
 import JavascriptModule from './javascript';
 import DefaultModule from './default';
-import StaticModule from './static';
+import ImageModule from './image';
 
 import path from 'path';
 
@@ -15,8 +15,8 @@ class Module{
             JsonModule,
             MarkdownModule,
             JavascriptModule,
-            DefaultModule,
-            StaticModule
+            ImageModule,
+            DefaultModule
         ];
     }
 
@@ -25,17 +25,16 @@ class Module{
     }
 
     _resolveFile(fileModel, { req, res }){
-        let findedModule = this.getModuleByExtension(fileModel.ext)
+        let findedModule = this.getModuleByExtension(fileModel.ext);
         let pathFile = path.resolve(this.basePath, fileModel.getPath());
 
-        if(!findedModule) return DefaultModule.resolve(pathFile, { req, res })
+        if(!findedModule) return res.send(`Module not found for this extension.`)
         
-        findedModule.resolve(pathFile, { req, res })
+        findedModule.resolve(pathFile, { req, res });
     }
 
     getModuleByExtension(extension){
-        let extensionWithoutDot = extension.replace('.','');
-        return this.modules.find(_module =>extensionWithoutDot.match(_module.accept));
+        return this.modules.find(_module => extension.match(_module.accept));
     }
 }
 

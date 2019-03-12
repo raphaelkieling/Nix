@@ -1,10 +1,12 @@
 import fs from 'fs';
 
 class DefaultModule{
-    constructor(){ }
+    constructor(){ 
+        this.accept = /.*/g;
+    }
 
     async resolve(filepath, { req, res }){
-        let content = await fs.readFileSync(filepath)
+        let content = await fs.readFileSync(filepath);
         res.send(content.toString());
     }
 }
