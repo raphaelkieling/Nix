@@ -6,8 +6,8 @@ sidebar: true
 
 - [x] Create a env file to configure.
 - [x] Use CLI
-- [ ] Create object to export and user with node
-- [ ] Use that with [heroku](https://www.heroku.com/) or other app.
+- [ ] Create object to export and use with node
+- [ ] Use this with [heroku](https://www.heroku.com/) or other app.
 - [x] Create a logo
 - [x] Create a doc
 - [x] Accept Markdown
