@@ -3,7 +3,7 @@ import RouteManager from 'core/routeManager'
 import FileManager from 'core/fileManager';
 import PortResolver from 'core/portResolver';
 import enviroment from 'core/enviroment';
-import App from 'core/server';
+import Application from 'core/server';
 
 import Module from 'modules';
 
@@ -30,8 +30,9 @@ const optionsPortResolver = {
 
 const options = {
     port: new PortResolver(optionsPortResolver).getPort(),
-    application: App,
-    routeManager: new RouteManager(optionsRouteManager)
+    application: Application,
+    routeManager: new RouteManager(optionsRouteManager),
+    basePath: enviroment.basePath
 };
 
 export default new Nix(options)

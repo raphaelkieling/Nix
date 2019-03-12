@@ -1,25 +1,25 @@
 Arguments: 
-  /home/egsys21/.nvm/versions/node/v10.15.1/bin/node /home/egsys21/.nvm/versions/node/v10.15.1/bin/yarn add markdown-it-task-lists
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add chokidar
 
 PATH: 
-  /home/egsys21/.local/bin:/home/egsys21/.nvm/versions/node/v10.15.1/bin:/home/egsys21/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/oracle/12.1/client64/bin
 
 Yarn version: 
-  1.13.0
+  1.10.1
 
 Node version: 
-  10.15.1
+  8.10.0
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/egsys21/projects/nix/node_modules/@babel/cli/node_modules/slash/index.js'
+  Error: EACCES: permission denied, mkdir '/home/egsyspc20/projects/Nix/node_modules/@babel/plugin-proposal-async-generator-functions/node_modules/@babel/core/lib'
 
 npm manifest: 
   {
     "name": "nix-api",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
@@ -67,13 +67,16 @@ npm manifest:
     "dependencies": {
       "body-parser": "^1.18.3",
       "chalk": "^2.4.2",
+      "cli-spinner": "^0.2.8",
       "commander": "^2.19.0",
       "cors": "^2.8.5",
       "dotenv": "^6.2.0",
       "express": "^4.16.4",
       "figlet": "^1.2.1",
       "fs-readdir-recursive": "^1.1.0",
-      "marked": "^0.6.1"
+      "markdown-it-task-lists": "^2.1.1",
+      "marked": "^0.6.1",
+      "ncp": "^2.0.0"
     }
   }
 
@@ -2567,6 +2570,11 @@ Lockfile:
     integrity sha1-s12sN2R5+sw+lHR9QdDQ9SOP/LU=
     dependencies:
       restore-cursor "^2.0.0"
+  
+  cli-spinner@^0.2.8:
+    version "0.2.8"
+    resolved "https://registry.yarnpkg.com/cli-spinner/-/cli-spinner-0.2.8.tgz#8169d9ffae870676445e6ee4397e95a7a15bd805"
+    integrity sha512-Z4l0jljucEUsW/5GNaVYOpGgVmnB/Sq4l2vG9k7RbJYRZ97hVncP+BqRMemTZNBHZ4aYUPJPU/wl6zt/ZSqzPQ==
   
   clipboard@^2.0.0:
     version "2.0.4"
@@ -5321,6 +5329,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/markdown-it-table-of-contents/-/markdown-it-table-of-contents-0.4.3.tgz#6453925a76e49b9b3d9569a0d89f1c2168b46982"
     integrity sha512-x/OdaRzLYxAjmB+jIVlXuE3nX7tZTLDQxm58RkgjTLyQ+I290jYQvPS9cJjVN6SM3U6K6CHKYNgUtPNZmLblYQ==
   
+  markdown-it-task-lists@^2.1.1:
+    version "2.1.1"
+    resolved "https://registry.yarnpkg.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#f68f4d2ac2bad5a2c373ba93081a1a6848417088"
+    integrity sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==
+  
   markdown-it@^8.4.1:
     version "8.4.2"
     resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
@@ -5690,6 +5703,11 @@ Lockfile:
     dependencies:
       nanoassert "^1.1.0"
       nanoscheduler "^1.0.2"
+  
+  ncp@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
+    integrity sha1-GVoh1sRuNh0vsSgbo4uR6d9727M=
   
   needle@^2.2.1:
     version "2.2.4"

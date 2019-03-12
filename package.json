@@ -48,6 +48,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.2",
+    "chokidar": "^2.1.2",
+    "clear": "^0.1.0",
     "cli-spinner": "^0.2.8",
     "commander": "^2.19.0",
     "cors": "^2.8.5",
