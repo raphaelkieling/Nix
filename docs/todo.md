@@ -29,3 +29,4 @@ sidebar: true
 - [ ] Use Webpack to resolve the files (need?)
 - [ ] Copy and create a folder to build the project with webpack (npmi)
 - [ ] Resolve routes when it's have two files with equals name
+- [ ] Create a zip and deploy online
