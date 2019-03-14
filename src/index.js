@@ -3,35 +3,47 @@ import RouteManager from 'core/routeManager'
 import FileManager from 'core/fileManager';
 import PortResolver from 'core/portResolver';
 import enviroment from 'core/enviroment';
-import App from 'core/server';
-
+import Application from 'core/server';
+import Commands from 'core/commands';
+import path from 'path';
 import Module from 'modules';
-
 import Nix from 'core'
 
-
-const optionsModule = {
-    basePath: enviroment.basePath
+async function initCommands(){
+    return  await Commands.start();
 }
 
-const optionsFileManager = {
-    basePath: enviroment.basePath
-};
+export default async() =>{ 
+    let { port, watch, dir, showDir } = await initCommands();
 
-const optionsRouteManager = {
-    moduleManager: new Module(optionsModule),
-    fileManager: new FileManager(optionsFileManager),
-    basePath: enviroment.basePath
-};
+    let finalBasePath = dir ? path.resolve(enviroment.basePath, dir) : enviroment.basePath;
 
-const optionsPortResolver = {
-    port: enviroment.port
-};
+    const optionsModule = {
+        basePath: finalBasePath
+    }
 
-const options = {
-    port: new PortResolver(optionsPortResolver).getPort(),
-    application: App,
-    routeManager: new RouteManager(optionsRouteManager)
-};
+    const optionsFileManager = {
+        basePath: finalBasePath
+    };
 
-export default new Nix(options)
+    const optionsRouteManager = {
+        moduleManager: new Module(optionsModule),
+        fileManager: new FileManager(optionsFileManager),
+        basePath: finalBasePath
+    };
+
+    const optionsPortResolver = {
+        port: enviroment.port
+    };
+
+    const options = {
+        port: port || new PortResolver(optionsPortResolver).getPort(),
+        application: Application,
+        routeManager: new RouteManager(optionsRouteManager),
+        basePath: finalBasePath,
+        watch,
+        showDir
+    };
+    
+    return new Nix(options)
+} 

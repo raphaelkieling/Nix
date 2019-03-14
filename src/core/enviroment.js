@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 class Enviroment {
     constructor(){
         this.basePath = process.cwd()
-        this.port = 3000;
+        this.port = process.env.PORT || 3000;
 
         this.init()
     }

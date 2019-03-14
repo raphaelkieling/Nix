@@ -17,6 +17,7 @@ module.exports = {
       '/start',
       '/advanced',
       '/module',
+      '/deploy',
       '/todo',
       '/contributing'
     ]

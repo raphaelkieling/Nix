@@ -1,41 +1,54 @@
 import Banner from 'core/banner';
 import chalk from 'chalk';
-import Commands from 'core/commands';
-import { Spinner } from 'cli-spinner'
+import chokidar from 'chokidar';
+import clear from 'clear';
 
-
-class Nix{
-    constructor({ port, application, routeManager }){
-        this.application = application;
-        this.port = port;
+class Nix {
+    constructor({ port, application, routeManager, basePath, watch = false, showDir = false }) {
+        this.application  = application;
+        this.port         = port;
         this.routeManager = routeManager;
-        this.loader = new Spinner('processing.. %s');
+        this.basePath     = basePath;
+        this.watch        = watch;
+        this.showDir      = showDir;
     }
 
-    async commands(){
-        let { port } = await Commands.start();
+    listenBaseFolder() {
+        var watcher = chokidar.watch(this.basePath, {
+            ignored: /[\/\\]\./,
+            persistent: true,
+            ignoreInitial: true
+        });
 
-        if(port) this.port = port;
+        watcher
+            .on('add', this.restart.bind(this))
+            .on('unlink', this.restart.bind(this));
+    }
+    
+    async restart(){
+        console.log(chalk.yellow('Changed files!'));
+        this.application.http.close();
+        this.serve();
     }
 
-    async start(){
-        this.application.use(this.routeManager.routes())
+    async start() {
+        if(this.watch)
+            this.listenBaseFolder();
+        this.application.app.use(this.routeManager.routes());
     }
 
-    async serve(){
+    async serve() {
+        // clear();
         await Banner.start();
 
-        this.loader.start();
+        if(this.showDir)
+            console.log(chalk.yellow(`Working in ${this.basePath}`))
 
-        setTimeout(()=>{
-            this.loader.stop();
-            console.log('\n')
-            this.start();
-            this.application.listen(this.port, ()=>{
-                console.log('\n')
-                console.log(chalk.green(`Server running in PORT ${this.port}`))
-            });
-        }, 1000);
+        this.start();
+        this.application.http.listen(this.port, () => {
+            console.log('\n');
+            console.log(chalk.green(`Server running in PORT ${this.port}`));
+        });
     }
 }
 
