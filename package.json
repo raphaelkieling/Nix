@@ -57,7 +57,6 @@
     "express": "^4.16.4",
     "figlet": "^1.2.1",
     "fs-readdir-recursive": "^1.1.0",
-    "github-markdown-css": "^3.0.1",
     "markdown-it-task-lists": "^2.1.1",
     "marked": "^0.6.1",
     "ncp": "^2.0.0"

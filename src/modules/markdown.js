@@ -11,7 +11,9 @@ class MarkdownModule {
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <html>
                 <head>
-                    <link rel="stylesheet" href="/github/github-markdown.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css">
+                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+
                     <style>
                         body {
                             box-sizing: border-box;
@@ -24,6 +26,8 @@ class MarkdownModule {
                 </head>
                 <body class="markdown-body">
                     ${marked(content)}
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+                    <script>hljs.initHighlightingOnLoad();</script>
                 </body>
             </html>
         `
