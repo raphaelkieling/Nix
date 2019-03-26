@@ -11,7 +11,8 @@ sidebar: true
 - [x] Create a logo
 - [x] Create a doc
 - [x] Accept Markdown
-- [ ] Accept Markdown with sintax highlight
+- [x] Accept Markdown with sintax highlight
+- [x] Accept Markdown with github style
 - [ ] Accept JSX
 - [ ] Accept Python
 - [x] Accept JS

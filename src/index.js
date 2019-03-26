@@ -9,12 +9,12 @@ import path from 'path';
 import Module from 'modules';
 import Nix from 'core'
 
-async function initCommands(){
-    return  await Commands.start();
+async function initCommands() {
+    return await Commands.start();
 }
 
-export default async() =>{ 
-    let { port, watch, dir, showDir } = await initCommands();
+export default async () => {
+    let { port, watch, dir, showDir, files: requiredFiles } = await initCommands();
 
     let finalBasePath = dir ? path.resolve(enviroment.basePath, dir) : enviroment.basePath;
 
@@ -23,13 +23,15 @@ export default async() =>{
     }
 
     const optionsFileManager = {
-        basePath: finalBasePath
+        basePath: finalBasePath,
+        requiredFiles
     };
 
     const optionsRouteManager = {
         moduleManager: new Module(optionsModule),
         fileManager: new FileManager(optionsFileManager),
         basePath: finalBasePath
+        
     };
 
     const optionsPortResolver = {
@@ -44,6 +46,6 @@ export default async() =>{
         watch,
         showDir
     };
-    
+
     return new Nix(options)
 } 
