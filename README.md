@@ -16,7 +16,7 @@
 
 **Nix** is a library for create APIs fast. You need nothing to create a api. The reason to create this is the boring process to create a simple api, i need make this be simple.
 
-**IT'S FAST!!**
+**IT'S FAST!!!**
 
 ![speed](https://media.giphy.com/media/5YayOGiDo5vItN379Q/giphy.gif)
 
