@@ -14,7 +14,7 @@
 </p>
 
 
-**Nix** is a library for create APIs fast. You need nothing to create a api. The reason to create this is the boring process to create a simple api, i need make this be simple.
+**Nix** is a library for create APIs fast. You need nothing to create an api. The reason to create this is the boring process to create a simple api, i need make this be simple.
 
 **IT'S FAST!!!**
 
